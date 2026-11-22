@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slay Nails by Harmony – Queer Nail Tech Berlin</title>
+  <meta name="description" content="Slay Nails by Harmony – Queer Nail Tech in Berlin. Gel X und Shellac, Nail Art für jede Version von dir. Safer Space für FLINTA*. Jetzt Termin buchen.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Gloock&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#start" class="logo">Slay Nails<small>by Harmony</small></a>
+      <nav class="nav" id="nav">
+        <a href="#leistungen" data-i18n="nav.services">Leistungen</a>
+        <a href="#galerie" data-i18n="nav.gallery">Galerie</a>
+        <a href="#ueber" data-i18n="nav.about">Über uns</a>
+        <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+        <a href="https://connect.shore.com/bookings/slaynails-by-harmony/services?locale=de" class="btn btn--small js-book" target="_blank" rel="noopener" data-i18n="nav.book">Termin buchen</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Sprache / Language">
+        <button type="button" class="lang__btn is-active" data-lang="de" aria-pressed="true">DE</button>
+        <span aria-hidden="true">/</span>
+        <button type="button" class="lang__btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="start">
+      <div class="container hero__inner">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Queer Nail Tech · Berlin</p>
+        <h1>Slay Nails<small>by Harmony</small></h1>
+        <p class="hero__text" data-i18n="hero.text">Nail Art für jede Version von dir. Gel X und Shellac in einem Safer Space für FLINTA*, Queers und Allies.</p>
+        <div class="hero__actions">
+          <a href="https://connect.shore.com/bookings/slaynails-by-harmony/services?locale=de" class="btn btn--outline-light js-book" target="_blank" rel="noopener" data-i18n="hero.book">Termin buchen</a>
+          <a href="#leistungen" class="btn btn--outline-light" data-i18n="hero.prices">Preise ansehen</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Leistungen & Preise ===== -->
+    <section class="section" id="leistungen">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow" data-i18n="services.eyebrow">Leistungen</p>
+          <h2 data-i18n="services.title">Preisliste</h2>
+        </div>
+
+        <div class="filters" id="filters" role="group" aria-label="Kategorien">
+          <button type="button" class="filter is-active" data-filter="all" data-i18n="filter.all">Alle</button>
+          <button type="button" class="filter" data-filter="gelx">Gel X</button>
+          <button type="button" class="filter" data-filter="shellac">Shellac</button>
+          <button type="button" class="filter" data-filter="fix" data-i18n="services.fix">Reparatur</button>
+          <button type="button" class="filter" data-filter="removal" data-i18n="services.removal">Entfernung</button>
+        </div>
+
+        <div class="prices">
+          <div class="price-group" data-cat="gelx">
+            <h3>Gel X Extensions</h3>
+            <ul>
+              <li><span>Nude / One Color</span><span class="dots"></span><span>90 €</span></li>
+              <li><span>Design Simple</span><span class="dots"></span><span>105 €</span></li>
+              <li><span>Design Medium</span><span class="dots"></span><span>125 €</span></li>
+              <li><span>Design Max</span><span class="dots"></span><span>140 €</span></li>
+              <li><span>Design Next Level</span><span class="dots"></span><span>160 €</span></li>
+            </ul>
+          </div>
+
+          <div class="price-group" data-cat="shellac">
+            <h3>Shellac</h3>
+            <ul>
+              <li><span>One Color</span><span class="dots"></span><span>60 €</span></li>
+              <li><span>Design Simple</span><span class="dots"></span><span>70 €</span></li>
+              <li><span>Design Medium</span><span class="dots"></span><span>85 €</span></li>
+              <li><span>Design Max</span><span class="dots"></span><span>105 €</span></li>
+            </ul>
+          </div>
+
+          <div class="price-group" data-cat="fix">
+            <h3 data-i18n="services.fix">Reparatur</h3>
+            <ul>
+              <li><span>Shellac – 1 Nail</span><span class="dots"></span><span>5 €</span></li>
+              <li><span>Shellac – 2–3 Nails</span><span class="dots"></span><span>10 €</span></li>
+              <li><span>Gel X – 1 Nail</span><span class="dots"></span><span>7 €</span></li>
+              <li><span>Gel X – 2–3 Nails</span><span class="dots"></span><span>15 €</span></li>
+            </ul>
+          </div>
+
+          <div class="price-group" data-cat="removal">
+            <h3 data-i18n="services.removal">Entfernung</h3>
+            <ul>
+              <li><span data-i18n="s.firstRemoval">Erstentfernung (vorheriges Set)</span><span class="dots"></span><span>29 €</span></li>
+              <li><span>Gel X</span><span class="dots"></span><span>29 €</span></li>
+              <li><span>Shellac</span><span class="dots"></span><span>19 €</span></li>
+            </ul>
+          </div>
+        </div>
+        <p class="note" data-i18n="services.note">Preise laut Online-Buchung. Dauer und Details findest du dort bei jeder Leistung.</p>
+      </div>
+    </section>
+
+    <!-- ===== Galerie ===== -->
+    <section class="section section--tint" id="galerie">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow" data-i18n="gallery.eyebrow">Galerie</p>
+          <h2 data-i18n="gallery.title">Unsere Arbeiten</h2>
+        </div>
+
+        <!--
+          Eigene Fotos einfügen: Bild in den Ordner "images" legen und
+          <div class="gallery__item ph ph--1"></div> ersetzen durch
+          <img class="gallery__item" src="images/dein-bild.jpg" alt="Beschreibung">
+        -->
+        <div class="gallery">
+          <div class="gallery__item ph ph--1"><span>Foto 1</span></div>
+          <div class="gallery__item ph ph--2"><span>Foto 2</span></div>
+          <div class="gallery__item ph ph--3"><span>Foto 3</span></div>
+          <div class="gallery__item ph ph--4"><span>Foto 4</span></div>
+          <div class="gallery__item ph ph--5"><span>Foto 5</span></div>
+          <div class="gallery__item ph ph--6"><span>Foto 6</span></div>
+        </div>
+
+        <p class="gallery__more">
+          <span data-i18n="gallery.more">Mehr auf Instagram:</span> <a href="https://instagram.com/slaynails_byharmony" target="_blank" rel="noopener">@slaynails_byharmony</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Über uns ===== -->
+    <section class="section" id="ueber">
+      <div class="container about">
+        <div class="about__image ph ph--3"><span data-i18n="about.photo">Foto von Rachel</span></div>
+        <div class="about__text">
+          <p class="eyebrow" data-i18n="about.eyebrow">Über mich</p>
+          <h2 data-i18n="about.title">Nail Art für jede Version von dir.</h2>
+          <p data-i18n="about.p1">Hi, ich bin Rachel Harmony – Nail Tech in Berlin. Bei mir bekommst du Gel X und Shellac, vom schlichten Einfarbigen bis zum aufwendigen Design.</p>
+          <p data-i18n="about.p2">Mein Studio ist ein Safer Space für FLINTA*, Queers und Allies. Du sollst dich hier wohlfühlen, genau so, wie du bist.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Kontakt, Öffnungszeiten & Karte ===== -->
+    <section class="section" id="kontakt">
+      <div class="container contact">
+        <div class="contact__info">
+          <p class="eyebrow" data-i18n="contact.eyebrow">Kontakt</p>
+          <h2 data-i18n="contact.title">So findest du uns</h2>
+
+          <address>
+            Slay Nails by Harmony<br>
+            Pasteurstraße 4<br>
+            Berlin-Pankow
+          </address>
+
+          <p>
+            <a href="mailto:[email]">[E-Mail-Adresse]</a>
+          </p>
+
+          <h3 data-i18n="contact.hours">Öffnungszeiten</h3>
+          <table class="hours" id="hours">
+            <tr data-day="1"><td data-i18n="day.mon">Montag</td><td>[10:00 – 19:00]</td></tr>
+            <tr data-day="2"><td data-i18n="day.tue">Dienstag</td><td>[10:00 – 19:00]</td></tr>
+            <tr data-day="3"><td data-i18n="day.wed">Mittwoch</td><td>[10:00 – 19:00]</td></tr>
+            <tr data-day="4"><td data-i18n="day.thu">Donnerstag</td><td>[10:00 – 19:00]</td></tr>
+            <tr data-day="5"><td data-i18n="day.fri">Freitag</td><td>[10:00 – 19:00]</td></tr>
+            <tr data-day="6"><td data-i18n="day.sat">Samstag</td><td>[10:00 – 15:00]</td></tr>
+            <tr data-day="0"><td data-i18n="day.sun">Sonntag</td><td data-i18n="hours.closed">Geschlossen</td></tr>
+          </table>
+          <p class="note" data-i18n="hours.note">Termine nur nach Vereinbarung über die Online-Buchung.</p>
+        </div>
+
+        <!-- Karte wird erst nach Klick geladen (Datenschutz / DSGVO) -->
+        <div class="map" id="map"
+             data-src="https://www.google.com/maps?q=Pasteurstra%C3%9Fe+4+Berlin&output=embed">
+          <div class="map__consent">
+            <p data-i18n="map.consent">Mit dem Laden der Karte werden Daten an Google übertragen.</p>
+            <button class="btn btn--small" id="loadMap" data-i18n="map.show">Karte anzeigen</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© <span id="year"></span> Slay Nails by Harmony</span>
+      <nav>
+        <a href="https://instagram.com/slaynails_byharmony" target="_blank" rel="noopener">Instagram</a>
+        <a href="#" data-i18n="footer.imprint">Impressum</a>
+        <a href="#" data-i18n="footer.privacy">Datenschutz</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
