@@ -15,6 +15,29 @@ nav.querySelectorAll("a").forEach((link) =>
   })
 );
 
+// Menü schließen: Tippen daneben oder Escape
+document.addEventListener("click", (e) => {
+  if (nav.classList.contains("is-open") && !nav.contains(e.target) && !navToggle.contains(e.target)) {
+    nav.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+    navToggle.setAttribute("aria-label", t("aria.menuOpen"));
+  }
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && nav.classList.contains("is-open")) navToggle.click();
+});
+
+// Feste Buchen-Leiste erst nach dem Startbereich zeigen
+const bookBar = document.getElementById("bookBar");
+const heroEl = document.getElementById("start");
+const updateBookBar = () => {
+  const pastHero = window.scrollY > heroEl.offsetHeight * 0.6;
+  bookBar.classList.toggle("is-shown", pastHero && !nav.classList.contains("is-open"));
+};
+window.addEventListener("scroll", updateBookBar, { passive: true });
+new MutationObserver(updateBookBar).observe(nav, { attributes: true, attributeFilter: ["class"] });
+updateBookBar();
+
 // ===== Header-Linie beim Scrollen =====
 const header = document.getElementById("header");
 const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 10);
