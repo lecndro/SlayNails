@@ -6,9 +6,42 @@
   <meta name="theme-color" content="#3333ff">
   <title>Slay Nails by Harmony – Queer Nail Tech Berlin</title>
   <meta name="description" content="Slay Nails by Harmony – Queer Nail Tech in Berlin. Gel X und Shellac, Nail Art für jede Version von dir. Safer Space für FLINTA*. Jetzt Termin buchen.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Gloock&display=swap" rel="stylesheet">
+
+  <!-- Symbole -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <!-- Vorschau beim Teilen (WhatsApp, Instagram, ...).
+       WICHTIG: Nach dem Veröffentlichen bei og:image und og:url die komplette Adresse
+       der Seite eintragen, z. B. https://DEIN-NAME.github.io/REPO/images/og-image.jpg -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Slay Nails by Harmony">
+  <meta property="og:title" content="Slay Nails by Harmony – Queer Nail Tech Berlin">
+  <meta property="og:description" content="Gel X und Shellac in einem Safer Space für FLINTA*, Queers und Allies. Jetzt online buchen.">
+  <meta property="og:image" content="images/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Strukturierte Daten für Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NailSalon",
+    "name": "Slay Nails by Harmony",
+    "description": "Queer Nail Tech in Berlin – Gel X und Shellac, Safer Space für FLINTA*, Queers und Allies.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Pasteurstraße 4",
+      "postalCode": "10407",
+      "addressLocality": "Berlin",
+      "addressCountry": "DE"
+    },
+    "sameAs": ["https://www.instagram.com/slaynails_byharmony/"]
+  }
+  </script>
+
+  <link rel="preload" href="fonts/gloock-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -66,47 +99,149 @@
         </div>
 
         <div class="prices">
+          <!-- Gel X -->
           <div class="price-group" data-cat="gelx">
             <h3>Gel X Extensions</h3>
-            <ul>
-              <li><span>Nude / One Color</span><span class="dots"></span><span>90 €</span></li>
-              <li><span>Design Simple</span><span class="dots"></span><span>105 €</span></li>
-              <li><span>Design Medium</span><span class="dots"></span><span>125 €</span></li>
-              <li><span>Design Max</span><span class="dots"></span><span>140 €</span></li>
-              <li><span>Design Next Level</span><span class="dots"></span><span>160 €</span></li>
-            </ul>
+            <div class="svc-list">
+              <details class="svc">
+                <summary><span class="svc__name">Nude / One Color</span><span class="svc__price">90 €</span><span class="svc__chev"></span></summary>
+                <div class="svc__body">
+                  <p class="svc__dur"><span data-i18n="dur.label">Dauer</span> <span data-i18n="dur.90">1 Std. 30 Min.</span></p>
+                  <p data-i18n="n.gx1">Gel X mit sauberem, elegantem Finish: natürliches Nude oder eine Farbe. Eine Maniküre ist immer inklusive. Form und Länge kannst du frei wählen. Chrome oder Cat Eye gibt es für +5 € dazu.</p>
+                </div>
+              </details>
+              <details class="svc">
+                <summary><span class="svc__name">Design Simple</span><span class="svc__price">105 €</span><span class="svc__chev"></span></summary>
+                <div class="svc__body">
+                  <p class="svc__dur"><span data-i18n="dur.label">Dauer</span> <span data-i18n="dur.120">2 Std.</span></p>
+                  <p data-i18n="n.gx2">Gel X mit einem einfachen Design deiner Wahl, auf allen 10 Nägeln gleich: eine Farbe, French (klassisch oder farbig), Chrome, Aura Nails oder einfache Linien und Punkte. Soll jeder Nagel etwas anderes bekommen, wähle Medium, Max oder Next Level. Eigene Ideen kannst du mir vorab schicken.</p>
+                </div>
+              </details>
+              <details class="svc">
+                <summary><span class="svc__name">Design Medium</span><span class="svc__price">125 €</span><span class="svc__chev"></span></summary>
+                <div class="svc__body">
+                  <p class="svc__dur"><span data-i18n="dur.label">Dauer</span> <span data-i18n="dur.150">2 Std. 30 Min.</span></p>
+                  <p data-i18n="n.gx3">Gel X mit einem Design auf mittlerem Level: Jeder Nagel kann anders aussehen, bleibt aber schlicht, und das Set wirkt stimmig. Dazu gehören French-Variationen, Aura Nails, abstrakte Linien, einfache Muster, Chrome-Akzente, kleine Strasssteine und dezente 3D-Elemente.</p>
+                </div>
+              </details>
+              <details class="svc">
+                <summary><span class="svc__name">Design Max</span><span class="svc__price">140 €</span><span class="svc__chev"></span></summary>
+                <div class="svc__body">
+                  <p class="svc__dur"><span data-i18n="dur.label">Dauer</span> <span data-i18n="dur.150">2 Std. 30 Min.</span></p>
+                  <p data-i18n="n.gx4">Gel X mit detailliertem Design: Jeder Nagel ist anders, mit einem Mix aus Techniken und Materialien. Dazu gehören abstrakte und geschichtete Looks, Chrome, Cat Eye, eingeschlossene Elemente, Strass und 3D Nail Art wie Schleifen, Charms oder modellierte Elemente. Ideal für ein kreatives Set, aber nicht auf jedem Nagel extrem aufwendig.</p>
+                </div>
+              </details>
+              <details class="svc">
+                <summary><span class="svc__name">Design Next Level</span><span class="svc__price">160 €</span><span class="svc__chev"></span></summary>
+                <div class="svc__body">
+                  <p class="svc__dur"><span data-i18n="dur.label">Dauer</span> <span data-i18n="dur.180">3 Std.</span></p>
+                  <p data-i18n="n.gx5">Gel X mit komplett individuellem, hochdetailliertem Design. Jeder Nagel ist ein Unikat, mit fortgeschrittenen Techniken wie aufwendiger Handmalerei, detaillierten 3D-Designs, Texturen, Charms und Verzierungen. Das dauert länger und passt zu einem Statement-Set oder sehr konkreten Ideen.</p>
+                </div>
+              </details>
+            </div>
           </div>
 
+          <!-- Shellac -->
           <div class="price-group" data-cat="shellac">
             <h3>Shellac</h3>
-            <ul>
-              <li><span>One Color</span><span class="dots"></span><span>60 €</span></li>
-              <li><span>Design Simple</span><span class="dots"></span><span>70 €</span></li>
-              <li><span>Design Medium</span><span class="dots"></span><span>85 €</span></li>
-              <li><span>Design Max</span><span class="dots"></span><span>105 €</span></li>
-            </ul>
+            <div class="svc-list">
+              <details class="svc">
+                <summary><span class="svc__name">One Color</span><span class="svc__price">60 €</span><span class="svc__chev"></span></summary>
+                <div class="svc__body">
+                  <p class="svc__dur"><span data-i18n="dur.label">Dauer</span> <span data-i18n="dur.60">1 Std.</span></p>
+                  <p data-i18n="n.sh1">Maniküre und langhaltender Gel-Lack in einer Farbe auf deinen Naturnägeln. Chrome oder Cat Eye gibt es für +5 € dazu.</p>
+                </div>
+              </details>
+              <details class="svc">
+                <summary><span class="svc__name">Design Simple</span><span class="svc__price">70 €</span><span class="svc__chev"></span></summary>
+                <div class="svc__body">
+                  <p class="svc__dur"><span data-i18n="dur.label">Dauer</span> <span data-i18n="dur.90">1 Std. 30 Min.</span></p>
+                  <p data-i18n="n.sh2">Maniküre und Gel-Lack auf den Naturnägeln mit einfachem, einheitlichem Design, auf allen Nägeln gleich: eine Farbe, Chrome, French, Punkte oder ein anderes schlichtes Muster. Unsicher, welche Kategorie passt? Schreib mir vorab auf Instagram mit deiner Inspiration.</p>
+                </div>
+              </details>
+              <details class="svc">
+                <summary><span class="svc__name">Design Medium</span><span class="svc__price">85 €</span><span class="svc__chev"></span></summary>
+                <div class="svc__body">
+                  <p class="svc__dur"><span data-i18n="dur.label">Dauer</span> <span data-i18n="dur.90">1 Std. 30 Min.</span></p>
+                  <p data-i18n="n.sh3">Maniküre und Gel-Lack auf den Naturnägeln. Die Nägel haben unterschiedliche Designs, die aber noch relativ einfach bleiben, zum Beispiel French-Variationen, Aura Nails, abstrakte Linien, Chrome-Akzente, Punkte oder kleine handgemalte Details. Unsicher? Schreib mir vorab auf Instagram.</p>
+                </div>
+              </details>
+              <details class="svc">
+                <summary><span class="svc__name">Design Max</span><span class="svc__price">105 €</span><span class="svc__chev"></span></summary>
+                <div class="svc__body">
+                  <p class="svc__dur"><span data-i18n="dur.label">Dauer</span> <span data-i18n="dur.120">2 Std.</span></p>
+                  <p data-i18n="n.sh4">Maniküre und Gel-Lack auf den Naturnägeln für detailliertere Sets mit verschiedenen Techniken und 3D-Elementen, zum Beispiel Chrome, Strass, Texturen, geschichtete Designs, 3D-Details und aufwendigere Handmalerei. Jeder Nagel kann anders sein. Unsicher? Schreib mir vorab auf Instagram.</p>
+                </div>
+              </details>
+            </div>
           </div>
 
+          <!-- Reparatur -->
           <div class="price-group" data-cat="fix">
             <h3 data-i18n="services.fix">Reparatur</h3>
-            <ul>
-              <li><span>Shellac – 1 Nail</span><span class="dots"></span><span>5 €</span></li>
-              <li><span>Shellac – 2–3 Nails</span><span class="dots"></span><span>10 €</span></li>
-              <li><span>Gel X – 1 Nail</span><span class="dots"></span><span>7 €</span></li>
-              <li><span>Gel X – 2–3 Nails</span><span class="dots"></span><span>15 €</span></li>
-            </ul>
+            <div class="svc-list">
+              <details class="svc">
+                <summary><span class="svc__name" data-i18n="fx.sh1">Shellac – 1 Nagel</span><span class="svc__price">5 €</span><span class="svc__chev"></span></summary>
+                <div class="svc__body">
+                  <p class="svc__dur"><span data-i18n="dur.label">Dauer</span> <span data-i18n="dur.15">15 Min.</span></p>
+                  <p data-i18n="n.fxsh1">Reparatur eines Shellac-Nagels, der abgesplittert oder abgehoben ist oder neu gemacht werden soll. Innerhalb von 7 Tagen nach deinem Termin ist die Reparatur kostenlos, wenn sich das Produkt gelöst hat. Äußere Schäden und Unfälle sind nicht eingeschlossen. Danach gilt der normale Preis.</p>
+                </div>
+              </details>
+              <details class="svc">
+                <summary><span class="svc__name" data-i18n="fx.sh2">Shellac – 2–3 Nägel</span><span class="svc__price">10 €</span><span class="svc__chev"></span></summary>
+                <div class="svc__body">
+                  <p class="svc__dur"><span data-i18n="dur.label">Dauer</span> <span data-i18n="dur.30">30 Min.</span></p>
+                  <p data-i18n="n.fxsh2">Reparatur von 2–3 Shellac-Nägeln, die abgesplittert oder abgehoben sind oder neu gemacht werden sollen. Innerhalb von 7 Tagen nach deinem Termin kostenlos, wenn sich das Produkt gelöst hat. Äußere Schäden und Unfälle sind nicht eingeschlossen. Bei mehr als 3 Nägeln schreib mir bitte vor der Buchung.</p>
+                </div>
+              </details>
+              <details class="svc">
+                <summary><span class="svc__name" data-i18n="fx.gx1">Gel X – 1 Nagel</span><span class="svc__price">7 €</span><span class="svc__chev"></span></summary>
+                <div class="svc__body">
+                  <p class="svc__dur"><span data-i18n="dur.label">Dauer</span> <span data-i18n="dur.15">15 Min.</span></p>
+                  <p data-i18n="n.fxgx1">Reparatur oder Ersatz eines Gel-X-Nagels, wenn möglich mit dem ursprünglichen Design. Innerhalb von 7 Tagen nach deinem Termin kostenlos, wenn sich das Produkt gelöst hat. Äußere Schäden, Unfälle oder durch einen Stoß gebrochene Nägel sind nicht eingeschlossen. Danach gilt der normale Preis.</p>
+                </div>
+              </details>
+              <details class="svc">
+                <summary><span class="svc__name" data-i18n="fx.gx2">Gel X – 2–3 Nägel</span><span class="svc__price">15 €</span><span class="svc__chev"></span></summary>
+                <div class="svc__body">
+                  <p class="svc__dur"><span data-i18n="dur.label">Dauer</span> <span data-i18n="dur.30">30 Min.</span></p>
+                  <p data-i18n="n.fxgx2">Reparatur oder Ersatz von 2–3 Gel-X-Nägeln, wenn möglich mit dem ursprünglichen Design. Innerhalb von 7 Tagen nach deinem Termin kostenlos, wenn sich das Produkt gelöst hat. Äußere Schäden, Unfälle oder durch einen Stoß gebrochene Nägel sind nicht eingeschlossen. Bei mehr als 3 Nägeln schreib mir bitte vor der Buchung.</p>
+                </div>
+              </details>
+            </div>
           </div>
 
+          <!-- Entfernung -->
           <div class="price-group" data-cat="removal">
             <h3 data-i18n="services.removal">Entfernung</h3>
-            <ul>
-              <li><span data-i18n="s.firstRemoval">Erstentfernung (vorheriges Set)</span><span class="dots"></span><span>29 €</span></li>
-              <li><span>Gel X</span><span class="dots"></span><span>29 €</span></li>
-              <li><span>Shellac</span><span class="dots"></span><span>19 €</span></li>
-            </ul>
+            <div class="svc-list">
+              <details class="svc svc--important">
+                <summary><span class="svc__name" data-i18n="s.firstRemoval">Erstentfernung (vorheriges Set)</span><span class="svc__price">29 €</span><span class="svc__chev"></span></summary>
+                <div class="svc__body">
+                  <p class="svc__dur"><span data-i18n="dur.label">Dauer</span> <span data-i18n="dur.30">30 Min.</span></p>
+                  <p data-i18n="n.rmfirst">Zum ersten Mal hier? Bitte aufmerksam lesen: Trägst du Gel, BIAB oder ein anderes Produkt aus einem anderen Studio, musst du diese Leistung mit deinem ersten Termin mitbuchen. Ich arbeite nicht über fremde Arbeit, daher muss alles vorher sicher entfernt werden. Wichtig: Acryl und Acrygel entferne ich nicht, ich bin dagegen allergisch. Trägst du Acryl oder Acrygel, lass es vorher in einem anderen Studio komplett entfernen und komm mit freien Nägeln. Termine mit nicht berücksichtigtem Produkt können abgelehnt oder verschoben werden.</p>
+                </div>
+              </details>
+              <details class="svc">
+                <summary><span class="svc__name">Gel X</span><span class="svc__price">29 €</span><span class="svc__chev"></span></summary>
+                <div class="svc__body">
+                  <p class="svc__dur"><span data-i18n="dur.label">Dauer</span> <span data-i18n="dur.30">30 Min.</span></p>
+                  <p data-i18n="n.rmgx">Schonende Entfernung von Gel X, ohne deine Naturnägel zu beschädigen. Die Extensions werden vorsichtig abgefeilt, danach folgen Formgebung, leichtes Polieren und Nagelhautpflege. Ein pflegendes Öl ist inklusive.</p>
+                </div>
+              </details>
+              <details class="svc">
+                <summary><span class="svc__name">Shellac</span><span class="svc__price">19 €</span><span class="svc__chev"></span></summary>
+                <div class="svc__body">
+                  <p class="svc__dur"><span data-i18n="dur.label">Dauer</span> <span data-i18n="dur.30">30 Min.</span></p>
+                  <p data-i18n="n.rmsh">Schonende Entfernung deines Shellac, damit deine Naturnägel gesund bleiben. Der Lack wird vorsichtig abgefeilt, danach werden die Nägel gereinigt, geformt und leicht poliert. Nagelhautpflege und pflegendes Öl sind inklusive.</p>
+                </div>
+              </details>
+            </div>
           </div>
         </div>
-        <p class="note" data-i18n="services.note">Preise laut Online-Buchung. Dauer und Details findest du dort bei jeder Leistung.</p>
+
+        <p class="note" data-i18n="services.hint">Tippe auf eine Leistung für Dauer und Details. Preise wie in der Online-Buchung.</p>
+        <p class="note note--warn" data-i18n="services.warn">Hinweis: Acryl und Acrygel werden nicht bearbeitet oder entfernt (Allergie).</p>
       </div>
     </section>
 
@@ -121,9 +256,10 @@
         <!--
           Eigene Fotos einfügen: Bild in den Ordner "images" legen und
           <div class="gallery__item ph ph--1"></div> ersetzen durch
-          <img class="gallery__item" src="images/dein-bild.jpg" alt="Beschreibung">
+          <img class="gallery__item" src="images/dein-bild.jpg" alt="Beschreibung" loading="lazy" width="800" height="1000">
+          Bilder mit der Klasse "gallery__item" lassen sich per Tippen groß ansehen (Lightbox).
         -->
-        <div class="gallery">
+        <div class="gallery" id="gallery">
           <div class="gallery__item ph ph--1"><span>Foto 1</span></div>
           <div class="gallery__item ph ph--2"><span>Foto 2</span></div>
           <div class="gallery__item ph ph--3"><span>Foto 3</span></div>
@@ -146,8 +282,22 @@
           <p class="eyebrow" data-i18n="about.eyebrow">Über mich</p>
           <h2 data-i18n="about.title">Nail Art für jede Version von dir.</h2>
           <p data-i18n="about.p1">Hi, ich bin Rachel Harmony – Nail Tech in Berlin. Bei mir bekommst du Gel X und Shellac, vom schlichten Einfarbigen bis zum aufwendigen Design.</p>
-          <p data-i18n="about.p2">Mein Studio ist ein Safer Space für FLINTA*, Queers und Allies. Du sollst dich hier wohlfühlen, genau so, wie du bist.</p>
+          <p data-i18n="about.p2">Ich nehme mir Zeit für deine Ideen. Schick mir gern vorab deine Inspiration, dann gestalten wir dein Set zusammen.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- ===== Safer Space ===== -->
+    <section class="section section--tint safer" id="safer">
+      <div class="container safer__inner">
+        <p class="eyebrow" data-i18n="safer.eyebrow">Safer Space</p>
+        <h2 data-i18n="safer.title">Hier darfst du sein, wie du bist.</h2>
+        <p class="safer__text" data-i18n="safer.text">Mein Studio ist ein Safer Space für FLINTA*, Queers und Allies. FLINTA* steht für Frauen, Lesben, inter, nicht-binäre, trans und agender Personen.</p>
+        <ul class="safer__chips" aria-label="Willkommen / Welcome">
+          <li>FLINTA*</li>
+          <li>Queers</li>
+          <li>Allies</li>
+        </ul>
       </div>
     </section>
 
@@ -159,10 +309,10 @@
           <h2 data-i18n="contact.title">So findest du uns</h2>
 
           <address>
-            <a href="https://www.google.com/maps/search/?api=1&query=Pasteurstra%C3%9Fe+4+Berlin" target="_blank" rel="noopener" class="address-link">
+            <a href="https://www.google.com/maps/search/?api=1&query=Pasteurstra%C3%9Fe+4+10407+Berlin" target="_blank" rel="noopener" class="address-link">
               Slay Nails by Harmony<br>
               Pasteurstraße 4<br>
-              Berlin-Pankow
+              10407 Berlin
             </a>
           </address>
 
@@ -185,7 +335,7 @@
 
         <!-- Karte wird erst nach Klick geladen (Datenschutz / DSGVO) -->
         <div class="map" id="map"
-             data-src="https://www.google.com/maps?q=Pasteurstra%C3%9Fe+4+Berlin&output=embed">
+             data-src="https://www.google.com/maps?q=Pasteurstra%C3%9Fe+4+10407+Berlin&output=embed">
           <div class="map__consent">
             <p data-i18n="map.consent">Mit dem Laden der Karte werden Daten an Google übertragen.</p>
             <button class="btn btn--small" id="loadMap" data-i18n="map.show">Karte anzeigen</button>
@@ -201,11 +351,20 @@
       <span>© <span id="year"></span> Slay Nails by Harmony</span>
       <nav>
         <a href="https://instagram.com/slaynails_byharmony" target="_blank" rel="noopener">Instagram</a>
-        <a href="#" data-i18n="footer.imprint">Impressum</a>
-        <a href="#" data-i18n="footer.privacy">Datenschutz</a>
+        <a href="impressum.html" data-i18n="footer.imprint">Impressum</a>
+        <a href="datenschutz.html" data-i18n="footer.privacy">Datenschutz</a>
       </nav>
     </div>
   </footer>
+
+  <!-- Galerie-Vergrößerung -->
+  <dialog class="lightbox" id="lightbox" aria-label="Galerie">
+    <button type="button" class="lightbox__btn lightbox__close" id="lbClose" aria-label="Schließen">×</button>
+    <button type="button" class="lightbox__btn lightbox__prev" id="lbPrev" aria-label="Zurück">‹</button>
+    <button type="button" class="lightbox__btn lightbox__next" id="lbNext" aria-label="Weiter">›</button>
+    <img class="lightbox__img" id="lbImg" alt="">
+    <p class="lightbox__count" id="lbCount" aria-live="polite"></p>
+  </dialog>
 
   <!-- Feste Buchen-Leiste (nur auf dem Handy, erscheint nach dem Startbereich) -->
   <a href="https://connect.shore.com/bookings/slaynails-by-harmony/services?locale=de" class="book-bar js-book" id="bookBar" target="_blank" rel="noopener" data-i18n="hero.book">Termin buchen</a>

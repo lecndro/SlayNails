@@ -63,7 +63,7 @@ document.getElementById("loadMap").addEventListener("click", () => {
 
 // ===== Sanftes Einblenden der Abschnitte =====
 const revealTargets = document.querySelectorAll(
-  ".section__head, .price-group, .gallery__item, .about > *, .contact > *"
+  ".section__head, .price-group, .gallery__item, .about > *, .safer__inner > *, .contact > *"
 );
 revealTargets.forEach((el) => {
   el.classList.add("reveal");
@@ -118,6 +118,60 @@ document.querySelectorAll(".filter").forEach((btn) =>
     });
   })
 );
+
+// ===== Galerie: Foto groß ansehen (Lightbox) =====
+// Greift nur bei echten Bildern (<img class="gallery__item">), nicht bei Platzhaltern.
+const lightbox = document.getElementById("lightbox");
+const lbImg = document.getElementById("lbImg");
+const lbCount = document.getElementById("lbCount");
+const galleryImgs = [...document.querySelectorAll("img.gallery__item")];
+let lbIndex = 0;
+
+function showLightbox(i) {
+  lbIndex = (i + galleryImgs.length) % galleryImgs.length;
+  const img = galleryImgs[lbIndex];
+  lbImg.src = img.currentSrc || img.src;
+  lbImg.alt = img.alt;
+  lbCount.textContent = lbIndex + 1 + " / " + galleryImgs.length;
+}
+
+if (galleryImgs.length) {
+  galleryImgs.forEach((img, i) => {
+    img.tabIndex = 0;
+    img.setAttribute("role", "button");
+    img.style.cursor = "zoom-in";
+    img.addEventListener("click", () => { showLightbox(i); lightbox.showModal(); });
+    img.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); img.click(); }
+    });
+  });
+
+  const single = galleryImgs.length < 2;
+  document.getElementById("lbPrev").hidden = single;
+  document.getElementById("lbNext").hidden = single;
+  document.getElementById("lbPrev").addEventListener("click", () => showLightbox(lbIndex - 1));
+  document.getElementById("lbNext").addEventListener("click", () => showLightbox(lbIndex + 1));
+  document.getElementById("lbClose").addEventListener("click", () => lightbox.close());
+
+  // Tippen neben das Bild schließt
+  lightbox.addEventListener("click", (e) => { if (e.target === lightbox) lightbox.close(); });
+
+  // Pfeiltasten
+  lightbox.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") showLightbox(lbIndex - 1);
+    if (e.key === "ArrowRight") showLightbox(lbIndex + 1);
+  });
+
+  // Wischen auf dem Handy
+  let touchX = null;
+  lightbox.addEventListener("touchstart", (e) => { touchX = e.changedTouches[0].clientX; }, { passive: true });
+  lightbox.addEventListener("touchend", (e) => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    touchX = null;
+    if (Math.abs(dx) > 50) showLightbox(lbIndex + (dx < 0 ? 1 : -1));
+  }, { passive: true });
+}
 
 // ===== Jahr im Footer =====
 document.getElementById("year").textContent = new Date().getFullYear();

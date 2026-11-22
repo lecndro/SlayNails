@@ -613,3 +613,151 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .footer a { padding: .8rem 0; }
   .logo { padding: .5rem 0; }
 }
+
+/* =====================================================
+   Aufklappbare Leistungskarten
+   ===================================================== */
+.prices { align-items: start; }
+.svc { border-bottom: 1px solid var(--line); }
+.svc summary {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  min-height: 48px;
+  padding: .55rem 0;
+  cursor: pointer;
+  list-style: none;
+  transition: color .2s;
+}
+.svc summary::-webkit-details-marker { display: none; }
+.svc summary:hover, .svc[open] summary { color: var(--blue); }
+.svc__name { flex: 1; }
+.svc__price { font-weight: 600; white-space: nowrap; }
+.svc__chev {
+  flex: 0 0 auto;
+  width: 8px; height: 8px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform .3s var(--ease);
+  opacity: .65;
+}
+.svc[open] .svc__chev { transform: rotate(-135deg) translateY(-2px); }
+.svc__body { padding: .2rem 0 1.2rem; font-size: .92rem; line-height: 1.65; color: var(--muted); }
+.svc[open] .svc__body { animation: fadeUp .35s var(--ease); }
+.svc__body p { margin: 0 0 .7rem; }
+.svc__dur {
+  display: inline-flex;
+  gap: .35rem;
+  padding: .2rem .8rem;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  color: var(--blue);
+  background: rgba(51, 51, 255, .08);
+  border-radius: 999px;
+}
+.svc--important .svc__body p:last-child { padding-left: .9rem; border-left: 3px solid var(--accent); }
+.note--warn { margin-top: .4rem; color: var(--text); font-weight: 500; }
+
+@media (min-width: 1000px) {
+  .svc summary { min-height: 44px; padding: .3rem 0; }
+}
+
+/* =====================================================
+   Safer Space
+   ===================================================== */
+.safer__inner { max-width: 46rem; text-align: center; }
+.safer__text { margin: 0 auto 2rem; max-width: 36rem; color: var(--muted); }
+.safer__chips { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; margin: 0; padding: 0; list-style: none; }
+.safer__chips li {
+  padding: .6rem 1.4rem;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: rgba(255, 255, 255, .45);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+}
+
+/* =====================================================
+   Galerie-Vergrößerung
+   ===================================================== */
+.lightbox {
+  inset: 0;
+  margin: 0;
+  width: 100vw; height: 100vh; height: 100dvh;
+  max-width: none; max-height: none;
+  padding: 0;
+  border: 0;
+  color: #fff;
+  background: rgba(21, 19, 58, .94);
+}
+.lightbox[open] { display: flex; align-items: center; justify-content: center; animation: pageIn .25s var(--ease); }
+.lightbox::backdrop { background: rgba(21, 19, 58, .7); }
+.lightbox__img { max-width: 92vw; max-height: 80vh; max-height: 80dvh; object-fit: contain; border-radius: 12px; }
+.lightbox__btn {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 48px; height: 48px;
+  padding: 0 0 .15rem;
+  font: inherit;
+  font-size: 1.9rem;
+  line-height: 1;
+  color: #fff;
+  background: rgba(255, 255, 255, .14);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background .2s;
+}
+.lightbox__btn:hover { background: rgba(255, 255, 255, .28); }
+.lightbox__btn[hidden] { display: none; }
+.lightbox__close { top: 16px; right: 16px; }
+.lightbox__prev { left: 12px; top: 50%; transform: translateY(-50%); }
+.lightbox__next { right: 12px; top: 50%; transform: translateY(-50%); }
+.lightbox__count { position: absolute; bottom: 22px; left: 0; right: 0; margin: 0; text-align: center; font-size: .85rem; letter-spacing: .12em; opacity: .8; }
+body:has(dialog[open]) { overflow: hidden; }
+
+/* =====================================================
+   Rechtliche Seiten (Impressum, Datenschutz)
+   ===================================================== */
+.legal-back { font-size: .85rem; color: var(--muted); text-decoration: none; padding: .8rem 0; }
+.legal-back:hover { color: var(--blue); }
+.legal { padding: calc(var(--header-h) + 3rem) 0 5rem; min-height: 100vh; }
+.legal__inner { max-width: 46rem; }
+.legal h1 { font-size: clamp(2.2rem, 6vw, 3.2rem); margin-bottom: 1.5rem; }
+.legal h2 { margin: 2.2rem 0 .6rem; font-family: var(--font); font-size: 1.05rem; font-weight: 600; letter-spacing: 0; }
+.legal p { margin: 0 0 1rem; color: var(--muted); }
+.legal a { color: var(--blue); }
+.legal__links { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.legal__draft {
+  margin: 0 0 2rem;
+  padding: 1rem 1.2rem;
+  font-size: .9rem;
+  color: var(--text);
+  background: rgba(155, 109, 255, .16);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+}
+
+/* Preisliste auf Laptops: etwas kompakter, damit alles ohne Scrollen im Bild bleibt */
+@media (min-width: 1000px) {
+  #leistungen { padding: 3.5rem 0 2rem; }
+  #leistungen .section__head { margin-bottom: 1.4rem; }
+  #leistungen .filters { margin-bottom: 1.4rem; }
+  #leistungen .note { margin-top: 1.2rem; }
+  #leistungen .note--warn { margin-top: .3rem; }
+}
+
+/* =====================================================
+   Lesbarkeit: Kontraste nach WCAG AA (mind. 4.5 : 1)
+   ===================================================== */
+:root { --muted: #55527a; --accent-text: #6535d8; }
+.eyebrow { color: var(--accent-text); }
+.hero .eyebrow { color: #fff; }
+.hero__text { color: #fff; }
+.hours tr.is-today td:first-child::after { background: var(--accent-text); }
