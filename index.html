@@ -46,6 +46,8 @@
 </head>
 <body>
 
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
   <!-- ===== Navigation ===== -->
   <header class="header" id="header">
     <div class="container header__inner">
@@ -53,9 +55,9 @@
       <nav class="nav" id="nav">
         <a href="#leistungen" data-i18n="nav.services">Leistungen</a>
         <a href="#galerie" data-i18n="nav.gallery">Galerie</a>
-        <a href="#ueber" data-i18n="nav.about">Über uns</a>
+        <a href="#ueber" data-i18n="nav.about">Über mich</a>
         <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
-        <a href="https://connect.shore.com/bookings/slaynails-by-harmony/services?locale=de" class="btn btn--small js-book" target="_blank" rel="noopener" data-i18n="nav.book">Termin buchen</a>
+        <a href="https://connect.shore.com/bookings/slaynails-by-harmony/services?locale=de" class="btn btn--small js-book nav__book" id="navBook" target="_blank" rel="noopener" data-i18n="nav.book">Termin buchen</a>
       </nav>
       <div class="lang" role="group" aria-label="Sprache / Language">
         <button type="button" class="lang__btn is-active" data-lang="de" aria-pressed="true">DE</button>
@@ -73,7 +75,7 @@
     <section class="hero" id="start">
       <div class="container hero__inner">
         <p class="eyebrow" data-i18n="hero.eyebrow">Queer Nail Tech · Berlin</p>
-        <h1>Slay Nails<small>by Harmony</small></h1>
+        <div class="hero__title"><h1>Slay Nails<small>by Harmony</small></h1></div>
         <p class="hero__text" data-i18n="hero.text">Nail Art für jede Version von dir. Gel X und Shellac in einem Safer Space für FLINTA*, Queers und Allies.</p>
         <div class="hero__actions">
           <a href="https://connect.shore.com/bookings/slaynails-by-harmony/services?locale=de" class="btn btn--outline-light js-book" target="_blank" rel="noopener" data-i18n="hero.book">Termin buchen</a>
@@ -250,7 +252,7 @@
       <div class="container">
         <div class="section__head">
           <p class="eyebrow" data-i18n="gallery.eyebrow">Galerie</p>
-          <h2 data-i18n="gallery.title">Unsere Arbeiten</h2>
+          <h2 data-i18n="gallery.title">Meine Arbeiten</h2>
         </div>
 
         <!--
@@ -260,12 +262,15 @@
           Bilder mit der Klasse "gallery__item" lassen sich per Tippen groß ansehen (Lightbox).
         -->
         <div class="gallery" id="gallery">
-          <div class="gallery__item ph ph--1"><span>Foto 1</span></div>
-          <div class="gallery__item ph ph--2"><span>Foto 2</span></div>
-          <div class="gallery__item ph ph--3"><span>Foto 3</span></div>
-          <div class="gallery__item ph ph--4"><span>Foto 4</span></div>
-          <div class="gallery__item ph ph--5"><span>Foto 5</span></div>
-          <div class="gallery__item ph ph--6"><span>Foto 6</span></div>
+          <img class="gallery__item gal--flammen" src="images/galerie-flammen.jpg" width="1000" height="1333" loading="lazy"
+               alt="Kurze Nägel mit bernsteinfarbenem Leopardenmuster und neonfarbenen Flammen und Sternen in Pink, Grün und Blau"
+               data-i18n-alt="gal.alt1">
+          <img class="gallery__item gal--chrom" src="images/galerie-chrom.jpg" width="1000" height="1333" loading="lazy"
+               alt="Lange Nägel mit zerknittertem Chrom-Effekt in Silber"
+               data-i18n-alt="gal.alt2">
+          <img class="gallery__item gal--handschuhe" src="images/galerie-handschuhe.jpg" width="1200" height="800" loading="lazy"
+               alt="Nail Art entsteht: Mit einem feinen Pinsel wird ein schwarz-weißes Muster auf einen Nagel gemalt"
+               data-i18n-alt="gal.alt3">
         </div>
 
         <p class="gallery__more">
@@ -274,10 +279,12 @@
       </div>
     </section>
 
-    <!-- ===== Über uns ===== -->
+    <!-- ===== Über mich ===== -->
     <section class="section" id="ueber">
       <div class="container about">
-        <div class="about__image ph ph--3"><span data-i18n="about.photo">Foto von Rachel</span></div>
+        <img class="about__image" src="images/rachel.jpg" width="1000" height="1500" loading="lazy"
+             alt="Rachel Harmony bei der Arbeit: Sie feilt Nägel an einem Tisch vor blauem Hintergrund"
+             data-i18n-alt="about.alt">
         <div class="about__text">
           <p class="eyebrow" data-i18n="about.eyebrow">Über mich</p>
           <h2 data-i18n="about.title">Nail Art für jede Version von dir.</h2>
@@ -306,7 +313,7 @@
       <div class="container contact">
         <div class="contact__info">
           <p class="eyebrow" data-i18n="contact.eyebrow">Kontakt</p>
-          <h2 data-i18n="contact.title">So findest du uns</h2>
+          <h2 data-i18n="contact.title">So findest du mich</h2>
 
           <address>
             <a href="https://www.google.com/maps/search/?api=1&query=Pasteurstra%C3%9Fe+4+10407+Berlin" target="_blank" rel="noopener" class="address-link">

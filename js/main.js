@@ -1,4 +1,4 @@
-// ===== Mobile Navigation =====
+﻿// ===== Mobile Navigation =====
 const navToggle = document.getElementById("navToggle");
 const nav = document.getElementById("nav");
 
@@ -37,6 +37,16 @@ const updateBookBar = () => {
 window.addEventListener("scroll", updateBookBar, { passive: true });
 new MutationObserver(updateBookBar).observe(nav, { attributes: true, attributeFilter: ["class"] });
 updateBookBar();
+
+// Buchen-Button in der Topleiste erst zeigen, wenn der im Startbereich nicht mehr sichtbar ist
+const heroBook = document.querySelector(".hero__actions .js-book");
+const navBook = document.getElementById("navBook");
+if (heroBook && navBook && "IntersectionObserver" in window) {
+  new IntersectionObserver(
+    ([entry]) => navBook.classList.toggle("is-hidden", entry.isIntersecting),
+    { rootMargin: "-72px 0px 0px 0px" }
+  ).observe(heroBook);
+}
 
 // ===== Header-Linie beim Scrollen =====
 const header = document.getElementById("header");
@@ -108,16 +118,93 @@ document.getElementById("start") && new IntersectionObserver(
   { rootMargin: "-45% 0px -50% 0px" }
 ).observe(document.getElementById("start"));
 
-// ===== Preisliste filtern =====
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// ===== Preisliste filtern (mit sanftem Aus- und Einblenden) =====
+let filterTimer;
 document.querySelectorAll(".filter").forEach((btn) =>
   btn.addEventListener("click", () => {
     const cat = btn.dataset.filter;
+    const groups = [...document.querySelectorAll(".price-group")];
     document.querySelectorAll(".filter").forEach((b) => b.classList.toggle("is-active", b === btn));
-    document.querySelectorAll(".price-group").forEach((group) => {
-      group.hidden = cat !== "all" && group.dataset.cat !== cat;
-    });
+
+    const shouldHide = (g) => cat !== "all" && g.dataset.cat !== cat;
+    const apply = () =>
+      groups.forEach((g) => {
+        g.hidden = shouldHide(g);
+        g.classList.remove("is-leaving");
+      });
+
+    clearTimeout(filterTimer);
+    const leaving = groups.filter((g) => !g.hidden && shouldHide(g));
+    if (reduceMotion || !leaving.length) return apply();
+
+    leaving.forEach((g) => g.classList.add("is-leaving"));
+    filterTimer = setTimeout(apply, 200);
   })
 );
+
+// ===== Preiskarten: weiches Auf- und Zuklappen =====
+document.querySelectorAll(".svc").forEach((details) => {
+  if (reduceMotion || !details.animate) return;
+  const summary = details.querySelector("summary");
+  const body = details.querySelector(".svc__body");
+  const opts = { duration: 360, easing: "cubic-bezier(.22,.61,.36,1)" };
+  let anim = null;
+
+  const snapshot = () => {
+    const cs = getComputedStyle(body);
+    return { height: cs.height, paddingTop: cs.paddingTop, paddingBottom: cs.paddingBottom, opacity: cs.opacity };
+  };
+  const zero = { height: "0px", paddingTop: "0px", paddingBottom: "0px", opacity: 0 };
+
+  summary.addEventListener("click", (e) => {
+    e.preventDefault();
+    const wasAnimating = !!anim;
+    const current = wasAnimating ? snapshot() : null;
+    if (anim) anim.cancel();
+
+    const opening = wasAnimating ? details.classList.contains("is-closing") : !details.open;
+    if (opening) {
+      details.classList.remove("is-closing");
+      details.open = true;
+    } else {
+      details.classList.add("is-closing");
+    }
+
+    const natural = snapshot();
+    const from = opening ? current || zero : current || natural;
+    const to = opening ? natural : zero;
+
+    body.style.overflow = "hidden";
+    const thisAnim = body.animate([from, to], opts);
+    anim = thisAnim;
+    thisAnim.onfinish = () => {
+      if (!opening) {
+        details.open = false;
+        details.classList.remove("is-closing");
+      }
+      body.style.overflow = "";
+      if (anim === thisAnim) anim = null;
+    };
+    thisAnim.oncancel = () => {
+      body.style.overflow = "";
+      if (anim === thisAnim) anim = null;
+    };
+  });
+});
+
+// ===== Fortschrittsbalken beim Scrollen =====
+const progress = document.getElementById("progress");
+if (progress) {
+  const updateProgress = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.transform = "scaleX(" + (max > 0 ? Math.min(window.scrollY / max, 1) : 0) + ")";
+  };
+  window.addEventListener("scroll", updateProgress, { passive: true });
+  window.addEventListener("resize", updateProgress);
+  updateProgress();
+}
 
 // ===== Galerie: Foto groß ansehen (Lightbox) =====
 // Greift nur bei echten Bildern (<img class="gallery__item">), nicht bei Platzhaltern.

@@ -1,4 +1,4 @@
-/* ===== Slaynails – Minimal & Clean ===== */
+﻿/* ===== Slaynails – Minimal & Clean ===== */
 
 :root {
   --bg: #f0ecff;
@@ -838,3 +838,201 @@ h1, h2 { -webkit-text-stroke: .008em var(--royal); }
 /* Startbereich-Buttons: Farben getauscht (blau gefüllt, beim Darüberfahren weiß) */
 .hero .btn--outline-light { color: #fff; background: var(--royal); border-color: var(--royal); }
 .hero .btn--outline-light:hover { color: var(--royal); background: #fff; border-color: var(--royal); }
+
+/* Buchen-Button in der Topleiste: am Desktop erst sichtbar, wenn der Button im Startbereich verschwunden ist.
+   Der Platz bleibt reserviert, damit das Menü nicht springt. Auf dem Handy bleibt er im Menü immer da. */
+@media (min-width: 861px) {
+  .nav .nav__book {
+    transition: opacity .3s ease, transform .3s var(--ease), visibility .3s,
+                background .25s, color .25s, border-color .25s, box-shadow .3s var(--ease);
+  }
+  .nav .nav__book.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    pointer-events: none;
+  }
+}
+
+/* =====================================================
+   Weichere Übergänge
+   ===================================================== */
+
+/* Preiskarten: das Auf- und Zuklappen übernimmt JavaScript (sanftes Gleiten) */
+.svc[open] .svc__body { animation: none; }
+.svc.is-closing .svc__chev { transform: rotate(45deg) translateY(-2px); }
+.svc.is-closing summary { color: inherit; }
+
+/* Filter: Gruppen blenden kurz aus, bevor die Auswahl wechselt */
+.price-group.is-leaving {
+  opacity: 0 !important;
+  transform: translateY(8px) !important;
+  transition: opacity .2s ease, transform .2s ease !important;
+}
+
+/* Sprachwechsel: Inhalt blendet kurz aus und wieder ein */
+main, .footer { transition: opacity .2s ease; }
+body.is-switching main, body.is-switching .footer { opacity: 0; }
+
+/* Fortschrittsbalken */
+.progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  z-index: 120;
+  background: linear-gradient(90deg, var(--royal), var(--accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+
+/* Weicher Wechsel zwischen Startseite und Impressum/Datenschutz (moderne Browser) */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .3s; }
+@supports (view-transition-name: none) {
+  body { animation: none; }
+  .header { view-transition-name: site-header; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main, .footer { transition: none; }
+  .price-group.is-leaving { transition: none !important; }
+  @view-transition { navigation: none; }
+}
+
+/* "BY HARMONY" sitzt wie im Logo rechts unter dem Namen */
+.hero h1 { display: inline-block; }
+.hero h1 small {
+  display: block;
+  margin-top: .2rem;
+  padding-right: 6%;
+  text-align: right;
+}
+
+.hero h1 small { margin-top: -.5rem; }
+
+.hero h1 small { margin-top: clamp(-.5rem, -1vw, -.2rem); }
+
+/* =====================================================
+   3D-Überschrift im Startbereich
+   ===================================================== */
+.hero__title { perspective: 1000px; }
+.hero h1 { -webkit-text-stroke: .01em var(--royal); }
+.hero h1 small { text-shadow: none; }
+
+/* Vorderseite etwas heller, damit sie sich von den dunkleren Seitenflächen abhebt */
+.hero h1 { color: #3a3aff; -webkit-text-stroke-color: #3a3aff; }
+
+/* Logo oben links im selben 3D-Look wie die große Überschrift (klein und dezent) */
+.logo {
+  color: #3a3aff;
+  -webkit-text-stroke: .012em #3a3aff;
+  paint-order: stroke fill;
+  text-shadow:
+    -.01em -.01em 0 rgba(255, 255, 255, .5),
+    .012em .018em 0 #1818a8,
+    .024em .036em 0 #16169a,
+    .036em .054em 0 #13138b,
+    .048em .072em 0 #11117d,
+    .06em .09em 0 #0e0e6e,
+    .08em .12em .06em rgba(20, 20, 120, .3);
+}
+.logo small {
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+  color: var(--royal);
+}
+
+/* Logo: feiner abgestimmt, damit die kleine Schrift lesbar bleibt */
+.logo {
+  -webkit-text-stroke: .005em #3a3aff;
+  text-shadow:
+    -.008em -.008em 0 rgba(255, 255, 255, .45),
+    .012em .018em 0 #1a1aac,
+    .024em .036em 0 #16169a,
+    .036em .054em 0 #121283,
+    .06em .09em .05em rgba(20, 20, 120, .28);
+}
+
+/* =====================================================
+   Logo-Stil für Name und Logo: Königsblau, weißer Rand, lila Versatz
+   ===================================================== */
+.hero h1 {
+  color: var(--royal);
+  -webkit-text-stroke: .05em #fff;
+  paint-order: stroke fill;
+  text-shadow: .05em .05em 0 #9b6dff;
+}
+.hero h1 small { -webkit-text-stroke: 0; text-shadow: none; }
+
+.logo {
+  color: var(--royal);
+  -webkit-text-stroke: .045em #fff;
+  paint-order: stroke fill;
+  text-shadow: .06em .06em 0 #9b6dff;
+}
+.logo small { -webkit-text-stroke: 0; text-shadow: none; }
+
+/* Weicherer Schatten für Name und Logo */
+.hero h1 { text-shadow: .045em .055em .09em rgba(155, 109, 255, .6); }
+.logo { text-shadow: .05em .06em .08em rgba(155, 109, 255, .65); }
+.hero h1 small, .logo small { text-shadow: none; }
+
+/* =====================================================
+   Preiskarten: blasse Umrandung beim Darüberfahren und im geöffneten Zustand
+   ===================================================== */
+.svc {
+  margin-inline: -.9rem;
+  padding-inline: .9rem;
+  border-radius: 14px;
+  transition: box-shadow .3s var(--ease), background-color .3s var(--ease), border-color .3s;
+}
+.svc:hover {
+  border-bottom-color: transparent;
+  background-color: rgba(255, 255, 255, .3);
+  box-shadow: 0 0 0 1.5px rgba(120, 100, 255, .26);
+}
+.svc[open], .svc.is-closing {
+  border-bottom-color: transparent;
+  background-color: rgba(255, 255, 255, .4);
+  box-shadow: 0 0 0 1.5px rgba(120, 100, 255, .4), 0 8px 24px rgba(90, 80, 255, .08);
+}
+.svc:active { box-shadow: 0 0 0 2px rgba(120, 100, 255, .5); }
+
+/* Touch-Geräte: kein hängender Hover-Zustand nach dem Tippen */
+@media (hover: none) {
+  .svc:hover:not([open]):not(.is-closing) { background-color: transparent; box-shadow: none; border-bottom-color: var(--line); }
+}
+
+/* Rundung nur bei Hover/Geöffnet, damit die Trennlinien gerade bleiben */
+.svc { border-radius: 0; transition: box-shadow .3s var(--ease), background-color .3s var(--ease), border-color .3s, border-radius .3s; }
+.svc:hover, .svc[open], .svc.is-closing { border-radius: 14px; }
+@media (hover: none) { .svc:hover:not([open]):not(.is-closing) { border-radius: 0; } }
+
+/* Foto bei "Über mich" */
+img.about__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 28%;   /* Gesicht und Hände bleiben im Ausschnitt */
+  border-radius: 14px;
+  box-shadow: 0 18px 44px rgba(33, 33, 238, .16);
+}
+
+/* Ganzes Foto zeigen, damit Gesicht UND Hände mit den Nägeln zu sehen sind */
+img.about__image { aspect-ratio: 2 / 3; object-position: 50% 50%; }
+
+/* Galerie-Fotos: Ausschnitt so wählen, dass die Nägel im Bild bleiben */
+.gal--flammen { object-position: 50% 38%; }
+.gal--chrom { object-position: 40% 32%; }
+.gal--handschuhe { object-position: 80% 50%; }
+
+@media (max-width: 860px) {
+  /* Auf dem Handy: zwei Fotos nebeneinander, das Querformat-Foto darunter über die ganze Breite */
+  .gallery .gal--handschuhe { grid-column: 1 / -1; aspect-ratio: 3 / 2; object-position: 50% 50%; }
+}
+
+/* Die Höhe richtet sich nach dem Seitenverhältnis, nicht nach der Pixelhöhe im Bild */
+.gallery img.gallery__item { height: auto; }

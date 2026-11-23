@@ -2,7 +2,7 @@
 // Deutsch steht direkt im HTML. Hier stehen die englischen Texte.
 // Neue Texte: im HTML data-i18n="schluessel" setzen und hier ergänzen.
 const EN = {
-  "nav.services": "Services", "nav.gallery": "Gallery", "nav.about": "About", "nav.contact": "Contact", "nav.book": "Book now",
+  "nav.services": "Services", "nav.gallery": "Gallery", "nav.about": "About me", "nav.contact": "Contact", "nav.book": "Book now",
 
   "hero.eyebrow": "Queer Nail Tech · Berlin",
   "hero.text": "Nail art for every version of you. Gel X and Shellac in a safer space for FLINTA*, queers and allies.",
@@ -39,16 +39,20 @@ const EN = {
   "n.rmgx": "Gentle removal of Gel X without damaging your natural nails. The extensions are carefully filed off, followed by shaping, light buffing and cuticle care. A nourishing oil treatment is included.",
   "n.rmsh": "Gentle removal of your Shellac to keep your natural nails healthy. The polish is carefully filed off, then your nails are cleaned, shaped and lightly buffed. Cuticle care and a nourishing oil treatment are included.",
 
-  "gallery.eyebrow": "Gallery", "gallery.title": "Our work", "gallery.more": "More on Instagram:",
+  "gal.alt1": "Short nails with an amber leopard print and neon flames and stars in pink, green and blue",
+  "gal.alt2": "Long nails with a crinkled silver chrome effect",
+  "gal.alt3": "Nail art in progress: a fine brush paints a black and white pattern onto a nail",
+  "gallery.eyebrow": "Gallery", "gallery.title": "My work", "gallery.more": "More on Instagram:",
 
-  "about.photo": "Photo of Rachel", "about.eyebrow": "About me", "about.title": "Nail art for every version of you.",
+  "about.alt": "Rachel Harmony at work: filing nails at a table in front of a blue background",
+  "about.eyebrow": "About me", "about.title": "Nail art for every version of you.",
   "about.p1": "Hi, I'm Rachel Harmony – a nail tech in Berlin. I offer Gel X and Shellac, from a simple single colour to an elaborate design.",
   "about.p2": "I take time for your ideas. Feel free to send me your inspiration beforehand and we'll design your set together.",
 
   "safer.eyebrow": "Safer space", "safer.title": "Come as you are.",
   "safer.text": "My studio is a safer space for FLINTA*, queers and allies. FLINTA* stands for women, lesbians, intersex, non-binary, trans and agender people.",
 
-  "contact.eyebrow": "Contact", "contact.title": "Find us", "contact.hours": "Opening hours",
+  "contact.eyebrow": "Contact", "contact.title": "Find me", "contact.hours": "Opening hours",
   "day.mon": "Monday", "day.tue": "Tuesday", "day.wed": "Wednesday", "day.thu": "Thursday", "day.fri": "Friday", "day.sat": "Saturday", "day.sun": "Sunday",
   "hours.closed": "Closed",
   "hours.today": "Today",
@@ -70,6 +74,10 @@ const I18N = { en: EN, de: {} };
 document.querySelectorAll("[data-i18n]").forEach((el) => {
   I18N.de[el.dataset.i18n] = el.textContent;
 });
+// Deutsche Bildbeschreibungen merken
+document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
+  I18N.de[el.dataset.i18nAlt] = el.getAttribute("alt");
+});
 Object.assign(I18N.de, {
   "hours.today": "Heute",
   "map.title": "Standort Slay Nails by Harmony",
@@ -88,6 +96,10 @@ function setLang(lang) {
 
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     el.textContent = t(el.dataset.i18n);
+  });
+
+  document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
+    el.setAttribute("alt", t(el.dataset.i18nAlt));
   });
 
   // Buchungsseite in der passenden Sprache öffnen
@@ -124,8 +136,19 @@ function setLang(lang) {
   try { localStorage.setItem("lang", currentLang); } catch (e) {}
 }
 
+// Beim Umschalten: Inhalt kurz ausblenden, Texte tauschen, wieder einblenden
+let langTimer;
 document.querySelectorAll(".lang__btn").forEach((btn) =>
-  btn.addEventListener("click", () => setLang(btn.dataset.lang))
+  btn.addEventListener("click", () => {
+    if (btn.dataset.lang === currentLang) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return setLang(btn.dataset.lang);
+    clearTimeout(langTimer);
+    document.body.classList.add("is-switching");
+    langTimer = setTimeout(() => {
+      setLang(btn.dataset.lang);
+      requestAnimationFrame(() => document.body.classList.remove("is-switching"));
+    }, 180);
+  })
 );
 
 // Startsprache: gespeicherte Wahl, sonst Browsersprache
