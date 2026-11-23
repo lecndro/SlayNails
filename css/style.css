@@ -803,3 +803,38 @@ body:has(dialog[open]) { overflow: hidden; }
 .header { background: rgba(236, 235, 255, .85); }
 h1, h2 { color: var(--royal); }
 .footer { background: linear-gradient(to bottom, var(--bg-tint), #d4d6ff); }
+
+/* =====================================================
+   Kräftigere Überschriften (Logo-Look: Königsblau mit lila Versatz)
+   ===================================================== */
+h1, h2 {
+  -webkit-text-stroke: .02em var(--royal);
+  paint-order: stroke fill;
+  text-shadow: .045em .045em 0 rgba(155, 109, 255, .38);
+}
+.hero h1 {
+  font-size: clamp(3.9rem, 13vw, 9rem);
+  -webkit-text-stroke: .025em var(--royal);
+  text-shadow: .05em .05em 0 rgba(155, 109, 255, .5);
+}
+.hero h1 small {
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+  font-weight: 600;
+}
+.legal h1, .legal h2 { -webkit-text-stroke: 0; text-shadow: none; }
+.legal h2 { color: var(--text); }
+
+/* Strichstärke fein abgestimmt, damit die Buchstaben-Innenräume offen bleiben */
+h1, h2 { -webkit-text-stroke: .008em var(--royal); }
+.hero h1 { -webkit-text-stroke: .014em var(--royal); }
+.legal h1, .legal h2 { -webkit-text-stroke: 0; }
+
+/* Topleiste etwas durchsichtiger */
+.header { background: rgba(236, 235, 255, .68); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+
+.header { background: rgba(236, 235, 255, .78); }
+
+/* Startbereich-Buttons: Farben getauscht (blau gefüllt, beim Darüberfahren weiß) */
+.hero .btn--outline-light { color: #fff; background: var(--royal); border-color: var(--royal); }
+.hero .btn--outline-light:hover { color: var(--royal); background: #fff; border-color: var(--royal); }
