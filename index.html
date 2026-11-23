@@ -35,6 +35,10 @@
       "addressLocality": "Berlin",
       "addressCountry": "DE"
     },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Thursday", "Friday", "Saturday"], "opens": "10:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "09:30", "closes": "18:00" }
+    ],
     "sameAs": ["https://www.instagram.com/slaynails_byharmony/"]
   }
   </script>
@@ -75,7 +79,7 @@
     <section class="hero" id="start">
       <div class="container hero__inner">
         <p class="eyebrow" data-i18n="hero.eyebrow">Queer Nail Tech · Berlin</p>
-        <div class="hero__title"><h1>Slay Nails<small>by Harmony</small></h1></div>
+        <div class="hero__title"><h1><span class="hero__name">Slay Nails</span><small>by Harmony</small></h1></div>
         <p class="hero__text" data-i18n="hero.text">Nail Art für jede Version von dir. Gel X und Shellac in einem Safer Space für FLINTA*, Queers und Allies.</p>
         <div class="hero__actions">
           <a href="https://connect.shore.com/bookings/slaynails-by-harmony/services?locale=de" class="btn btn--outline-light js-book" target="_blank" rel="noopener" data-i18n="hero.book">Termin buchen</a>
@@ -262,15 +266,15 @@
           Bilder mit der Klasse "gallery__item" lassen sich per Tippen groß ansehen (Lightbox).
         -->
         <div class="gallery" id="gallery">
-          <img class="gallery__item gal--flammen" src="images/galerie-flammen.jpg" width="1000" height="1333" loading="lazy"
-               alt="Kurze Nägel mit bernsteinfarbenem Leopardenmuster und neonfarbenen Flammen und Sternen in Pink, Grün und Blau"
-               data-i18n-alt="gal.alt1">
-          <img class="gallery__item gal--chrom" src="images/galerie-chrom.jpg" width="1000" height="1333" loading="lazy"
-               alt="Lange Nägel mit zerknittertem Chrom-Effekt in Silber"
-               data-i18n-alt="gal.alt2">
           <img class="gallery__item gal--handschuhe" src="images/galerie-handschuhe.jpg" width="1200" height="800" loading="lazy"
                alt="Nail Art entsteht: Mit einem feinen Pinsel wird ein schwarz-weißes Muster auf einen Nagel gemalt"
                data-i18n-alt="gal.alt3">
+          <img class="gallery__item gal--chrom" src="images/galerie-chrom.jpg" width="1000" height="1333" loading="lazy"
+               alt="Lange Nägel mit zerknittertem Chrom-Effekt in Silber"
+               data-i18n-alt="gal.alt2">
+          <img class="gallery__item gal--flammen" src="images/galerie-flammen.jpg" width="1000" height="1333" loading="lazy"
+               alt="Kurze Nägel mit bernsteinfarbenem Leopardenmuster und neonfarbenen Flammen und Sternen in Pink, Grün und Blau"
+               data-i18n-alt="gal.alt1">
         </div>
 
         <p class="gallery__more">
@@ -324,20 +328,20 @@
           </address>
 
           <p>
-            <a href="mailto:[email]">[E-Mail-Adresse]</a>
+            <a href="mailto:slaynailsbyharmony@gmail.com">slaynailsbyharmony@gmail.com</a>
           </p>
 
           <h3 data-i18n="contact.hours">Öffnungszeiten</h3>
           <table class="hours" id="hours">
-            <tr data-day="1"><td data-i18n="day.mon">Montag</td><td>[10:00 – 19:00]</td></tr>
-            <tr data-day="2"><td data-i18n="day.tue">Dienstag</td><td>[10:00 – 19:00]</td></tr>
-            <tr data-day="3"><td data-i18n="day.wed">Mittwoch</td><td>[10:00 – 19:00]</td></tr>
-            <tr data-day="4"><td data-i18n="day.thu">Donnerstag</td><td>[10:00 – 19:00]</td></tr>
-            <tr data-day="5"><td data-i18n="day.fri">Freitag</td><td>[10:00 – 19:00]</td></tr>
-            <tr data-day="6"><td data-i18n="day.sat">Samstag</td><td>[10:00 – 15:00]</td></tr>
+            <tr data-day="1"><td data-i18n="day.mon">Montag</td><td data-i18n="hours.closed">Geschlossen</td></tr>
+            <tr data-day="2"><td data-i18n="day.tue">Dienstag</td><td>10:00 – 18:00</td></tr>
+            <tr data-day="3"><td data-i18n="day.wed">Mittwoch</td><td>09:30 – 18:00</td></tr>
+            <tr data-day="4"><td data-i18n="day.thu">Donnerstag</td><td>10:00 – 18:00</td></tr>
+            <tr data-day="5"><td data-i18n="day.fri">Freitag</td><td>10:00 – 18:00</td></tr>
+            <tr data-day="6"><td data-i18n="day.sat">Samstag</td><td>10:00 – 18:00</td></tr>
             <tr data-day="0"><td data-i18n="day.sun">Sonntag</td><td data-i18n="hours.closed">Geschlossen</td></tr>
           </table>
-          <p class="note" data-i18n="hours.note">Termine nur nach Vereinbarung über die Online-Buchung.</p>
+          <p class="note note--walkin" data-i18n="hours.note">Keine Walk-ins: Termine gibt es nur über die Online-Buchung.</p>
         </div>
 
         <!-- Karte wird erst nach Klick geladen (Datenschutz / DSGVO) -->

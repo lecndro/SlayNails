@@ -1036,3 +1036,88 @@ img.about__image { aspect-ratio: 2 / 3; object-position: 50% 50%; }
 
 /* Die Höhe richtet sich nach dem Seitenverhältnis, nicht nach der Pixelhöhe im Bild */
 .gallery img.gallery__item { height: auto; }
+
+/* =====================================================
+   Überschrift im Startbereich: kräftiges Blau, dezenter lila Schatten
+   ===================================================== */
+.hero h1 {
+  color: #1c1cf0;
+  -webkit-text-stroke: .012em #1c1cf0;   /* etwas mehr Gewicht */
+  paint-order: stroke fill;
+  text-shadow: .035em .045em .05em rgba(155, 109, 255, .42);
+}
+.hero h1 small {
+  color: var(--royal);
+  -webkit-text-fill-color: var(--royal);
+  -webkit-text-stroke: 0;
+  text-shadow: none;
+}
+
+/* Hinweis "Keine Walk-ins" unter den Öffnungszeiten: größer und gut lesbar */
+.note.note--walkin {
+  margin-top: 1.1rem;
+  max-width: 24rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+/* Walk-in-Hinweis: etwas dezenter */
+.note.note--walkin {
+  font-size: .95rem;
+  font-weight: 400;
+  color: #3e3c66;
+}
+
+/* =====================================================
+   Keine Farbverläufe im Hintergrund: alle Flächen einfarbig
+   ===================================================== */
+.hero { background: #e1e4ff; }
+.hero::before, .hero::after { display: none; }
+.section--tint { background: var(--bg-tint); }
+#leistungen, #ueber, #kontakt, #safer { background-image: none; }
+#kontakt { background: none; }
+.footer { background: var(--bg-tint); }
+
+/* =====================================================
+   Dezente weiche Übergänge zwischen den Abschnitten
+   (nur an den Rändern, nur von oben nach unten, die Flächen selbst bleiben einfarbig)
+   ===================================================== */
+:root { --fade: 110px; }
+
+.hero {
+  background: linear-gradient(to bottom, #e1e4ff calc(100% - 150px), var(--bg) 100%);
+}
+
+#safer, .section--tint {
+  background: linear-gradient(to bottom,
+    var(--bg) 0, var(--bg-tint) var(--fade),
+    var(--bg-tint) calc(100% - var(--fade)), var(--bg) 100%);
+}
+
+.footer {
+  background: linear-gradient(to bottom, var(--bg) 0, var(--bg-tint) 120px);
+}
+
+@media (max-width: 860px) {
+  :root { --fade: 70px; }
+  .hero { background: linear-gradient(to bottom, #e1e4ff calc(100% - 100px), var(--bg) 100%); }
+}
+
+/* Preiskarten: Hintergrund wie die Seite (nur die blasse Umrandung bleibt) */
+.svc:hover, .svc[open], .svc.is-closing { background-color: transparent; }
+
+/* =====================================================
+   Dezenteres Hintergrund-Blau auf der ganzen Seite (heller, weniger Farbe)
+   ===================================================== */
+:root {
+  --bg: #f2f2fc;
+  --bg-tint: #eaeaf8;
+  --line: #dcdcf3;
+}
+.header { background: rgba(242, 242, 252, .78); }
+.hero { background: linear-gradient(to bottom, #eaedfc calc(100% - 150px), var(--bg) 100%); }
+@media (max-width: 860px) {
+  .hero { background: linear-gradient(to bottom, #eaedfc calc(100% - 100px), var(--bg) 100%); }
+}

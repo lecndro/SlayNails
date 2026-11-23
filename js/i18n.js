@@ -56,7 +56,7 @@ const EN = {
   "day.mon": "Monday", "day.tue": "Tuesday", "day.wed": "Wednesday", "day.thu": "Thursday", "day.fri": "Friday", "day.sat": "Saturday", "day.sun": "Sunday",
   "hours.closed": "Closed",
   "hours.today": "Today",
-  "hours.note": "Appointments by arrangement via the online booking only.",
+  "hours.note": "No walk-ins: appointments are available through the online booking only.",
   "map.consent": "Loading the map transfers data to Google.", "map.show": "Show map", "map.title": "Location of Slay Nails by Harmony",
 
   "footer.imprint": "Legal notice", "footer.privacy": "Privacy policy",
